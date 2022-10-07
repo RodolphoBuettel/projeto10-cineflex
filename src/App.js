@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import Films from "./Films";
 import Sessions from "./Sessions";
+import Seats from "./Seats";
 
 export default function App() {
     return (
@@ -15,6 +16,7 @@ export default function App() {
                 <Routes>
                     <Route path="/" element={<Films />}/>
                     <Route path="/films/:filmsId" element={<Sessions/>}/>
+                    <Route path="/assentos/:idSessao" element={<Seats/>}/>
                 </Routes>
             </Container>
         </BrowserRouter>
@@ -26,12 +28,12 @@ const Header = styled.div`
     width: 100%;
     height: 67px;
     left: 0px;
-    margin-top: -10px;
+    margin-top: -75px;
     background: #C3CFD9;
     box-sizing: border-box;
     padding-bottom: 10px;
     
-    /* position: fixed; */
+    position: fixed;
     h1{
         font-size: 34px;
         font-weight: 400;
@@ -51,7 +53,7 @@ const Header = styled.div`
 
 
 const Container = styled.div`
-    
+    font-family: 'Roboto', sans-serif;
 `
 
 

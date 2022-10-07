@@ -45,6 +45,7 @@ const ChoiceFilms = styled.div`
 height: 110px;
 left: 0px;
 margin-top: 67px;
+padding-top: 50px;
 h2{
     font-family: 'Roboto';
 font-style: normal;

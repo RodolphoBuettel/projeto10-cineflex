@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 
 export default function Hora({h}) {
-
     return (
         <>
-            <Horary><h4>{h.name}</h4></Horary>
+            <Horary><Link to={`/assentos/${h.id}`}><h4>{h.name}</h4></Link></Horary>
         </>
     )
 
@@ -23,4 +24,9 @@ text-align: center;
 align-items: center;
 justify-content: center;
 color: white;
+h4{
+    text-decoration-color: #e8833a;
+    text-decoration-style: none;
+    color:white;
+}
 `

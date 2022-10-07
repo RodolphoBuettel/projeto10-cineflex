@@ -8,7 +8,7 @@ import Time from "./Time";
 export default function Sessions() {
     const [session, setSession] = useState([]);
     const [miniPoster, setMiniPoster] = useState([]);
-    const[title, SetTitle] = useState([]);
+    const [title, SetTitle] = useState([]);
     const { filmsId } = useParams();
 
     useEffect(() => {
@@ -31,13 +31,13 @@ export default function Sessions() {
                 <h2>Escolha o horário</h2>
             </ChoiceTheTime>
             <Session>
-                {session.map((s)=> <Time key={s.id} s={s}/>)}
+                {session.map((s) => <Time key={s.id} s={s} />)}
             </Session>
             <Footer>
                 <div>
-                    <img src={`${miniPoster}`}/>
+                    <img src={`${miniPoster}`} />
                 </div>
-                    <h3>{title}</h3>
+                <h3>{title}</h3>
             </Footer>
         </>
     )
@@ -50,7 +50,7 @@ width: 100%;
 height: 117px;
 display: flex;
 margin-top: 15px;
-background: #DFE6ED;
+background: #9EADBA;
 border: 1px solid #9EADBA;
 z-index: 10;
 h3{
@@ -90,6 +90,7 @@ const ChoiceTheTime = styled.div`
 height: 110px;
 left: 0px;
 margin-top: 67px;
+padding-top: 50px;
 h2{
     font-family: 'Roboto';
 font-style: normal;
