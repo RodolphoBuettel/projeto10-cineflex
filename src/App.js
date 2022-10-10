@@ -1,12 +1,22 @@
-import react from "react";
+import react, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 
 import Films from "./Films";
 import Sessions from "./Sessions";
 import Seats from "./Seats";
+import Success from "./Success";
 
 export default function App() {
+    const [token, setToken] = useState("");
+    const [nome, setNome] = useState("");
+    const [cpf, setCpf] = useState("");
+    const [movie, setMovie] = useState([])
+    const [time, setTime] = useState([]);
+    const [day, setDay] = useState([]);
+    const [session, setSession] = useState([]);
+    const [array, setArray] = useState([]);
+    
     return (
         <BrowserRouter>
             <Container>
@@ -15,8 +25,12 @@ export default function App() {
                 </Header>
                 <Routes>
                     <Route path="/" element={<Films />}/>
-                    <Route path="/films/:filmsId" element={<Sessions/>}/>
-                    <Route path="/assentos/:idSessao" element={<Seats/>}/>
+                    <Route path="/films/:filmsId" element={<Sessions setSession={setSession} session={session}/>}/>
+                    <Route path="/assentos/:idSessao" element={<Seats array={array} setArray={setArray} setToken={setToken}  nome={nome} 
+                    setNome={setNome} cpf={cpf} setCpf={setCpf} movie={movie} setMovie={setMovie} time={time} 
+                    setTime={setTime} setDay={setDay} day={day}/>}/>
+                    <Route path="/success" element={<Success nome={nome} session={session} 
+                    cpf={cpf} movie={movie} time={time} day={day} array={array}/>}/>
                 </Routes>
             </Container>
         </BrowserRouter>

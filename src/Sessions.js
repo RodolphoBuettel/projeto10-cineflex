@@ -5,8 +5,7 @@ import styled from "styled-components";
 import Time from "./Time";
 
 
-export default function Sessions() {
-    const [session, setSession] = useState([]);
+export default function Sessions({session, setSession}) {
     const [miniPoster, setMiniPoster] = useState([]);
     const [title, SetTitle] = useState([]);
     const { filmsId } = useParams();

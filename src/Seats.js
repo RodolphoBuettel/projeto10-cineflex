@@ -5,12 +5,10 @@ import { useEffect, useState } from "react";
 import Chair from "./Chair";
 import Form from "./Form";
 
-export default function Seats() {
+export default function Seats({setToken, nome, setNome, cpf, setCpf, setMovie, movie, setTime, time, setDay, day, array, setArray}) {
     const [chair, setChair] = useState([]);
     const { idSessao } = useParams();
-    const [movie, setMovie] = useState([])
-    const [time, setTime] = useState([]);
-    const [day, setDay] = useState([]);
+    
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
@@ -33,7 +31,7 @@ export default function Seats() {
                 <h2>{`Selecione o(s) assento(s)`}</h2>
             </ChoiceSeats>
             <Chairs>
-                {chair.map((c) => <Chair key={c.id} c={c} />)}
+                {chair.map((c) => <Chair key={c.id} c={c} array={array} setArray={setArray} />)}
             </Chairs>
             <Availability>
                 <Select>
@@ -49,8 +47,8 @@ export default function Seats() {
                     <h4>Indisponível</h4>
                 </Unavailable>
             </Availability>
-            <Form/>
-            <Button>{`Reservar assento(s)`}</Button>
+            <Form array={array} setArray={setArray} setToken={setToken} nome={nome} setNome={setNome} cpf={cpf} setCpf={setCpf}/>
+           
             <Footer2>
                 <div>
                     <img src={`${movie.posterURL}`} />
@@ -202,17 +200,4 @@ const Movie = styled.span`
         margin-top: 30px;
         margin-bottom: -20px;
     }
-`
-const Button = styled.div`
-    width: 225px;
-height: 42px;
-margin-left: 72px;
-margin-top: 50px;
-margin-bottom: 30px;
-background: #E8833A;
-border-radius: 3px;
-color: white;
-text-align: center;
-box-sizing: border-box;
-padding-top: 10px;
 `
