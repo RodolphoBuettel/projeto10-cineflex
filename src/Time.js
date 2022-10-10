@@ -9,7 +9,7 @@ export default function Time({s}) {
                 <h3>{s.weekday} {s.date}</h3>
             </Day>
             <Available>
-                {horas.map((h)=> <Times key={h.id} h={h} />)}
+                {horas.map((h)=> <Times data-identifier="hour-minute-btn" key={h.id} h={h} />)}
             </Available>
         </>
     )

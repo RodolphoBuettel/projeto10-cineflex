@@ -16,6 +16,7 @@ export default function App() {
     const [day, setDay] = useState([]);
     const [session, setSession] = useState([]);
     const [array, setArray] = useState([]);
+    const [arr, setArr] = useState([]);
     
     return (
         <BrowserRouter>
@@ -28,9 +29,9 @@ export default function App() {
                     <Route path="/films/:filmsId" element={<Sessions setSession={setSession} session={session}/>}/>
                     <Route path="/assentos/:idSessao" element={<Seats array={array} setArray={setArray} setToken={setToken}  nome={nome} 
                     setNome={setNome} cpf={cpf} setCpf={setCpf} movie={movie} setMovie={setMovie} time={time} 
-                    setTime={setTime} setDay={setDay} day={day}/>}/>
+                    setTime={setTime} setDay={setDay} day={day} setArr={setArr} arr={arr}/>}/>
                     <Route path="/success" element={<Success nome={nome} session={session} 
-                    cpf={cpf} movie={movie} time={time} day={day} array={array}/>}/>
+                    cpf={cpf} movie={movie} time={time} day={day} arr={arr}/>}/>
                 </Routes>
             </Container>
         </BrowserRouter>

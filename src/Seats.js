@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import Chair from "./Chair";
 import Form from "./Form";
 
-export default function Seats({setToken, nome, setNome, cpf, setCpf, setMovie, movie, setTime, time, setDay, day, array, setArray}) {
+export default function Seats({setToken, nome, setNome, cpf, setCpf, setMovie,
+     movie, setTime, time, setDay, day, array, setArray, setArr, arr}) {
     const [chair, setChair] = useState([]);
     const { idSessao } = useParams();
     
@@ -31,27 +32,28 @@ export default function Seats({setToken, nome, setNome, cpf, setCpf, setMovie, m
                 <h2>{`Selecione o(s) assento(s)`}</h2>
             </ChoiceSeats>
             <Chairs>
-                {chair.map((c) => <Chair key={c.id} c={c} array={array} setArray={setArray} />)}
+                {chair.map((c) => <Chair data-identifier="seat"
+                key={c.id} c={c} array={array} setArray={setArray} setArr={setArr} arr={arr} />)}
             </Chairs>
             <Availability>
                 <Select>
                     <div></div>
-                    <h4>Selecionado</h4>
+                    <h4 data-identifier="seat-selected-subtitle">Selecionado</h4>
                 </Select>
                 <Available>
                     <div></div>
-                    <h4>Disponível</h4>
+                    <h4 ata-identifier="seat-available-subtitle">Disponível</h4>
                 </Available>
                 <Unavailable>
                     <div></div>
-                    <h4>Indisponível</h4>
+                    <h4 data-identifier="seat-unavailable-subtitle">Indisponível</h4>
                 </Unavailable>
             </Availability>
             <Form array={array} setArray={setArray} setToken={setToken} nome={nome} setNome={setNome} cpf={cpf} setCpf={setCpf}/>
            
             <Footer2>
                 <div>
-                    <img src={`${movie.posterURL}`} />
+                    <img data-identifier="movie-and-session-infos-preview" src={`${movie.posterURL}`} />
                 </div>
                 <Movie>
                 <h3>{movie.title}</h3>

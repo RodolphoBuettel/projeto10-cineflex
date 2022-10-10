@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Chair({c, array, setArray}){
+export default function Chair({c, array, setArray, arr, setArr}){
     const [selectedSeat, setSelectedSeat] = useState(false);
     
     
@@ -9,7 +9,9 @@ export default function Chair({c, array, setArray}){
         if(c.isAvailable === false){
         setSelectedSeat(!selectedSeat);
             array.push(Number(c.id));
-            console.log(array);
+            console.log(c.name);
+            arr.push(Number(c.name));
+            setArr(arr);
             setArray(array);
             c.isAvailable = true;
         }
@@ -17,7 +19,8 @@ export default function Chair({c, array, setArray}){
 
    return(
     <>
-       <Seat onClick={()=>SelectSeat(c.name, c.id)} c={c.isAvailable} selectedSeat={selectedSeat} n={c.name}><div>{c.name}</div></Seat>
+       <Seat onClick={()=>SelectSeat(c.name, c.id)} c={c.isAvailable}
+        selectedSeat={selectedSeat} n={c.name}><div>{c.name}</div></Seat>
     </>
    ) 
 }

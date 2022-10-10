@@ -30,11 +30,11 @@ export default function Sessions({session, setSession}) {
                 <h2>Escolha o horário</h2>
             </ChoiceTheTime>
             <Session>
-                {session.map((s) => <Time key={s.id} s={s} />)}
+                {session.map((s) => <Time data-identifier="session-date" key={s.id} s={s} />)}
             </Session>
-            <Footer>
+            <Footer >
                 <div>
-                    <img src={`${miniPoster}`} />
+                    <img data-identifier="movie-img-preview" src={`${miniPoster}`} />
                 </div>
                 <h3>{title}</h3>
             </Footer>

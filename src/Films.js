@@ -26,7 +26,7 @@ export default function Films() {
                 <h2>Selecione o filme</h2>
             </ChoiceFilms>
             <FilmsContent>
-                {films.map((f) => <Film key={f.id} f={f} />)}
+                {films.map((f) => <Film data-identifier="movie-outdoor" key={f.id} f={f} />)}
             </FilmsContent>
         </>
     )

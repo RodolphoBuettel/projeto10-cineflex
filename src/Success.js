@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Assento from "./Assento";
 
-export default function Success({nome, cpf, movie, time, day, array}) {
-    console.log(array);
+export default function Success({nome, cpf, movie, time, day, arr, session}) {
+    
    
     const navigate = useNavigate();
 
@@ -17,16 +17,16 @@ export default function Success({nome, cpf, movie, time, day, array}) {
             <h2>Pedido feito com sucesso</h2>
         </Confirmed>
         <FilmAndSession>
-            <h3>Filme e sessão</h3>
+            <h3 data-identifier="movie-session-infos-reserve-finished" >Filme e sessão</h3>
             <p>{movie.title}</p>
             <p>{day} {time}</p>
             <h3>Assentos</h3>
-            {array.map((a)=> <Assento key={a.id} a={a}/>)}
-            <h3>Comprador</h3>
+            {arr.map((a, index)=> <Assento data-identifier="seat-infos-reserve-finished" key={index} a={a}/>)}
+            <h3 data-identifier="buyer-infos-reserve-finished">Comprador</h3>
             <p>Nome: {nome}</p>
             <p>CPF: {cpf}</p>
         </FilmAndSession>
-        <Button onClick={Back}>Voltar pra home</Button>
+        <Button data-identifier="back-to-home-btn" onClick={Back}>Voltar pra home</Button>
         </>
     )
 }

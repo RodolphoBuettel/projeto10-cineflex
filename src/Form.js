@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios";
 
-export default function Form({array, nome, setNome, cpf, setCpf }) {
+export default function Form({ array, nome, setNome, cpf, setCpf }) {
 
     // const [disable, setDisable] = useState(true);
     const navigate = useNavigate();
@@ -30,33 +30,35 @@ export default function Form({array, nome, setNome, cpf, setCpf }) {
     }
 
     return (
-            <form onSubmit={Validate} >
-                <Nome>
-                   <label forhtml="nome"><h3>Nome do Comprador:</h3></label>
-                    <input id="nome"
-                        type="nome"
-                        value={nome}
-                        onChange={(e) => setNome(e.target.value)}
-                        placeholder="Digite seu nome..."
-                        required />
-                </Nome>
-                <Cpf>
+        <form onSubmit={Validate} >
+            <Nome>
+                <label forhtml="nome"><h3>Nome do Comprador:</h3></label>
+                <input ata-identifier="buyer-name-input"
+                    id="nome"
+                    type="nome"
+                    value={nome}
+                    onChange={(e) => setNome(e.target.value)}
+                    placeholder="Digite seu nome..."
+                    required />
+            </Nome>
+            <Cpf>
                 <label forhtml="cpf"><h3>CPF do Comprador:</h3></label>
-                    <input id="cpf"
-                        type="text"
-                        value={cpf}
-                        onChange={(e) => setCpf(e.target.value)}
-                        placeholder="Digite seu CPF..."
-                        required />
-                </Cpf>
-               
-                <Button type="submit">{`Reservar assento(s)`}</Button>
-               
-            </form>
+                <input data-identifier="buyer-cpf-input"
+                     id="cpf"
+                    type="text"
+                    value={cpf}
+                    onChange={(e) => setCpf(e.target.value)}
+                    placeholder="Digite seu CPF..."
+                    required />
+            </Cpf>
+
+            <Button data-identifier="reservation-btn" type="submit">{`Reservar assento(s)`}</Button>
+
+        </form>
     )
 }
 
-const Button = styled.div`
+const Button = styled.button`
     width: 225px;
 height: 42px;
 margin-left: 72px;
